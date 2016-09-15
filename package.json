@@ -1,0 +1,13 @@
+{
+  "name": "slack-android-uploader",
+  "version": "1.0.0",
+  "description": "",
+  "main": "sau",
+  "keywords": ["slack", "apk", "android", "upload"],
+  "author": "Shantanu Raj <s@sraj.me>",
+  "license": "Apache 2.0",
+  "dependencies": {
+    "bluebird": "^3.4.6",
+    "request-promise": "^4.1.1"
+  }
+}
