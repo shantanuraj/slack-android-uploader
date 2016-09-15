@@ -16,8 +16,8 @@ Built on
 Prerequisites
 -------------
 
-    **[Node 6](https://nodejs.org/en/download/current/)**
-    **[Gradle](https://gradle.org/)**
+* **[Node 6](https://nodejs.org/en/download/current/)**
+* **[Gradle](https://gradle.org/)**
 
 Environment
 -----------
