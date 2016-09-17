@@ -27,7 +27,10 @@
     "request-promise": "^4.1.1"
   },
   "devDependencies": {
+    "@types/bluebird": "^3.0.33",
     "@types/node": "^6.0.38",
+    "@types/request": "0.0.30",
+    "@types/request-promise": "^3.0.31",
     "typescript": "^2.0.0"
   }
 }
