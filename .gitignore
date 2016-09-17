@@ -42,3 +42,6 @@ jspm_packages
 
 #IDE
 .vscode
+
+#TypeScript Output folder
+bin
