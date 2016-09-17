@@ -1,6 +1,6 @@
 {
   "name": "slack-android-uploader",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Slack Android APK upload utility",
   "main": "bin/index.js",
   "keywords": [
