@@ -29,17 +29,10 @@ Environment
 
   To post to multiple channels just seperate the channel name with commas while setting the environment variable.
 
-
 Install
 -------
 
-    git clone https://github.com/shantanuraj/slack-android-uploader
-    npm install
-
-Add to Path
------------
-
-    export PATH=$PATH:<path to directory containing sau file>
+    npm i slack-android-uploader -g
 
 Usage
 -----
@@ -60,7 +53,6 @@ To generate the release build, from the tag 1.4
 Similarly for generating the release build, from the master branch
 
     sau release master
-
 
 License
 -------
