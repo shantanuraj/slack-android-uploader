@@ -5,7 +5,7 @@
 'use strict'
 
 import * as fs from 'fs'
-import { spawn } from 'child_process'
+import { exec } from 'child_process'
 import * as request from 'request-promise'
 import { SLACK_TOKEN, SLACK_CHANNEL } from './config'
 
@@ -43,6 +43,7 @@ export const Slack = (file: string, type: string, tag?: string) => {
  */
 export const Shell = (command: string): Promise<number> => {
   return new Promise((resolve, reject) => {
-    spawn(command).on('close', (code: number) => code === 0 ? resolve(code) : reject(code))
+    console.log(`[exec] ${command}`)
+    exec(command, (error) => error !== null ? resolve() : reject(error))
   })
 }
