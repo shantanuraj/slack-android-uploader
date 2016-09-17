@@ -9,14 +9,28 @@
     "android",
     "upload"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/shantanuraj/slack-android-uploader.git"
+  },
   "author": "Shantanu Raj <s@sraj.me>",
-  "license": "Apache 2.0",
+  "license": "Apache-2.0",
+  "scripts": {
+    "prepublish": "tsc"
+  },
   "bin": {
-    "sau": "sau"
+    "sau": "bin/index.js"
   },
   "dependencies": {
     "bluebird": "^3.4.6",
     "request": "^2.74.0",
     "request-promise": "^4.1.1"
+  },
+  "devDependencies": {
+    "@types/bluebird": "^3.0.33",
+    "@types/node": "^6.0.38",
+    "@types/request": "0.0.30",
+    "@types/request-promise": "^3.0.31",
+    "typescript": "^2.0.0"
   }
 }

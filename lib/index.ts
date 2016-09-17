@@ -4,7 +4,7 @@
  * Project root file
  */
 
-const main = require('./lib/index')
+import main from './main'
 
 const [type, tag] = process.argv.slice(2)
 
