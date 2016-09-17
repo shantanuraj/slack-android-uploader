@@ -16,7 +16,7 @@ import { SLACK_TOKEN, SLACK_CHANNEL } from './config'
  * @param {string} tag  Optional tag to upload
  */
 export const Slack = (file: string, type: string, tag?: string) => {
-  console.log('Uploading zip to Slack')
+  console.log('[exec] Uploading zip to Slack')
 
   return request.post({
     url: 'https://slack.com/api/files.upload',
@@ -44,6 +44,6 @@ export const Slack = (file: string, type: string, tag?: string) => {
 export const Shell = (command: string): Promise<number> => {
   return new Promise((resolve, reject) => {
     console.log(`[exec] ${command}`)
-    exec(command, (error) => error !== null ? resolve() : reject(error))
+    exec(command, (error) => error === null ? resolve() : reject(error))
   })
 }
