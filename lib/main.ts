@@ -4,10 +4,10 @@
 
 'use strict'
 
-const path                          = require('path')
-const Bluebird                      = require('bluebird')
-const { Slack, Shell }              = require('./utils')
-const { ANDROID_SRC, OUTPUT_APKS }  = require('./config')
+import * as path from 'path'
+const Bluebird = require('bluebird')
+import { Slack, Shell } from './utils'
+import { ANDROID_SRC, OUTPUT_APKS } from './config'
 
 /**
  * Returns path to copy folder for build type
@@ -89,4 +89,4 @@ const postToSlack = (type, tag) => {
   }, {})
 }
 
-module.exports = postToSlack
+export default postToSlack

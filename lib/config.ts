@@ -4,12 +4,12 @@
 
 'use strict'
 
-const path = require('path')
+import * as path from 'path'
 
 /**
  * @type {string} Slack private token
  */
-const SLACK_TOKEN = process.env.SLACK_TOKEN
+export const SLACK_TOKEN = process.env.SLACK_TOKEN
 
 if (!SLACK_TOKEN) {
   console.error('Environment variable `SLACK_TOKEN` is not set!')
@@ -19,21 +19,14 @@ if (!SLACK_TOKEN) {
 /**
  * @type {string} Slack channel to post to by default `#general`
  */
-const SLACK_CHANNEL = process.env.SLACK_CHANNEL || 'general'
+export const SLACK_CHANNEL = process.env.SLACK_CHANNEL || 'general'
 
 /**
  * @type {string} Path to the android source code
  */
-const ANDROID_SRC = process.cwd()
+export const ANDROID_SRC = process.cwd()
 
 /**
  * @type {string} Path to the output apk folder
  */
-const OUTPUT_APKS = path.join(ANDROID_SRC, 'app', 'build', 'outputs', 'apk')
-
-module.exports = {
-  ANDROID_SRC,
-  OUTPUT_APKS,
-  SLACK_TOKEN,
-  SLACK_CHANNEL,
-}
+export const OUTPUT_APKS = path.join(ANDROID_SRC, 'app', 'build', 'outputs', 'apk')

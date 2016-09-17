@@ -4,10 +4,10 @@
 
 'use strict'
 
-const fs                                = require('fs')
-const spawn                             = require('child_process').spawn
-const request                           = require('request-promise')
-const { SLACK_TOKEN, SLACK_CHANNEL }    = require('./config')
+import * as fs from 'fs'
+import { spawn } from 'child_process'
+const request = require('request-promise')
+import { SLACK_TOKEN, SLACK_CHANNEL } from './config'
 
 /**
  * Uploads the zip file to Slack
@@ -15,7 +15,7 @@ const { SLACK_TOKEN, SLACK_CHANNEL }    = require('./config')
  * @param {string} type - Type of build to upload
  * @param {string} tag  - Tag to upload
  */
-const Slack = (file, type, tag) => {
+export const Slack = (file, type, tag) => {
     console.log('Uploading zip to Slack')
 
     return request.post({
@@ -41,13 +41,8 @@ const Slack = (file, type, tag) => {
  * Executes given command on the Shell
  * @param {string} command - Command to execute on shell
  */
-const Shell = (command) => {
+export const Shell = (command) => {
     return new Promise((resolve, reject) => {
         spawn(command).on('close', (code) => code === 0 ? resolve(code) : reject(code))
     })
-}
-
-module.exports = {
-    Slack,
-    Shell,
 }
