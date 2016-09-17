@@ -1,9 +1,14 @@
 {
   "name": "slack-android-uploader",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "",
   "main": "sau",
-  "keywords": ["slack", "apk", "android", "upload"],
+  "keywords": [
+    "slack",
+    "apk",
+    "android",
+    "upload"
+  ],
   "author": "Shantanu Raj <s@sraj.me>",
   "license": "Apache 2.0",
   "bin": {
@@ -11,6 +16,7 @@
   },
   "dependencies": {
     "bluebird": "^3.4.6",
+    "request": "^2.74.0",
     "request-promise": "^4.1.1"
   }
 }
