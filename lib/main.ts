@@ -5,7 +5,7 @@
 'use strict'
 
 import * as path from 'path'
-const Bluebird = require('bluebird')
+import { reduce } from 'bluebird'
 import { Slack, Shell } from './utils'
 import { ANDROID_SRC, OUTPUT_APKS } from './config'
 
@@ -80,10 +80,10 @@ const postToSlack = (type, tag) => {
 
   const tasks = tag ? [checkout(tag), ...commonTasks] : commonTasks
 
-  return Bluebird.reduce(tasks, (acc, task) => {
+  return reduce(tasks, (acc, task) => {
     return typeof task === 'string' ?
       Shell(task)
-        .then(() => Object.assign(acc, { [task]: true })) :
+        .then(() => Object.assign(acc, { [task as string]: true })) :
       task()
         .then(() => Object.assign(acc, { slack: true }))
   }, {})

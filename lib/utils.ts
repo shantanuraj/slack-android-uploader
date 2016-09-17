@@ -6,7 +6,7 @@
 
 import * as fs from 'fs'
 import { spawn } from 'child_process'
-const request = require('request-promise')
+import * as request from 'request-promise'
 import { SLACK_TOKEN, SLACK_CHANNEL } from './config'
 
 /**
