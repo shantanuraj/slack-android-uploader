@@ -6,6 +6,9 @@
   "keywords": ["slack", "apk", "android", "upload"],
   "author": "Shantanu Raj <s@sraj.me>",
   "license": "Apache 2.0",
+  "bin": {
+    "sau": "sau"
+  },
   "dependencies": {
     "bluebird": "^3.4.6",
     "request-promise": "^4.1.1"

@@ -1,4 +1,4 @@
-<h1 align="center">slack-android-uploader</h1>
+#slack-android-uploader
 
 > Slack Android APK upload utility
 
