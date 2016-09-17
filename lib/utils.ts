@@ -13,9 +13,9 @@ import { SLACK_TOKEN, SLACK_CHANNEL } from './config'
  * Uploads the zip file to Slack
  * @param {string} file Path of file to upload
  * @param {string} type Type of build to upload
- * @param {string} tag  Tag to upload
+ * @param {string} tag  Optional tag to upload
  */
-export const Slack = (file: string, type: string, tag: string) => {
+export const Slack = (file: string, type: string, tag?: string) => {
   console.log('Uploading zip to Slack')
 
   return request.post({

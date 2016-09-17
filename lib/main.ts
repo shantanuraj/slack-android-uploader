@@ -50,7 +50,7 @@ const zip = (type: string) => `zip -r ${copyTo(type)}.zip ${copyTo(type)}`
  * @param {string} type Type of build to post
  * @param {string} tag  Optional tag to build by default will build current branch
  */
-const post = (type: string, tag: string) => {
+const post = (type: string, tag?: string) => {
   return () => Slack(`${copyTo(type)}.zip`, type, tag)
 }
 
@@ -65,16 +65,14 @@ const clean = (type: string) => `rm -r ${copyTo(type)} ${copyTo(type)}.zip`
  * @param {string} type Build variant to ship by default `release`
  * @param {string} tag  Optional tag to build by default will build current branch
  */
-const postToSlack = (type: string, tag: string) => {
-
-  const _type = type || 'release'
+const postToSlack = (type: string = 'release', tag?: string) => {
 
   const commonTasks = [
-    build(_type),
-    copy(_type),
-    zip(_type),
-    post(_type, tag),
-    clean(_type),
+    build(type),
+    copy(type),
+    zip(type),
+    post(type, tag),
+    clean(type),
   ]
 
   const tasks = tag ? [checkout(tag), ...commonTasks] : commonTasks
