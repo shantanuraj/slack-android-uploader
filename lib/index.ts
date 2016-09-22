@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+/// <reference path="./typings.d.ts" />
+
 /**
  * Project root file
  */

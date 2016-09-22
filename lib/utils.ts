@@ -5,9 +5,9 @@
 'use strict'
 
 import * as fs from 'fs'
-import { exec } from 'child_process'
+import { spawn } from 'child_process'
 import * as request from 'request-promise'
-import { SLACK_TOKEN, SLACK_CHANNEL } from './config'
+import { SLACK_TOKEN, SLACK_CHANNEL, ANDROID_SRC } from './config'
 
 /**
  * Uploads the zip file to Slack
@@ -41,9 +41,12 @@ export const Slack = (file: string, type: string, tag?: string) => {
  * Executes given command on the Shell
  * @param {string} command Command to execute on shell
  */
-export const Shell = (command: string): Promise<number> => {
+export const Shell = (ex: Executable): Promise<number> => {
   return new Promise((resolve, reject) => {
-    console.log(`[exec] ${command}`)
-    exec(command, (error) => error === null ? resolve() : reject(error))
+    console.log(`[exec] ${ex.command}`)
+    const execution = spawn(ex.command, ex.args, { cwd: ANDROID_SRC })
+    execution.stdout.on('data', (data) => console.log(data.toString('utf-8')))
+    execution.stderr.on('data', (data) => console.log(data.toString('utf-8')))
+    execution.on('exit', (code: number) => code === 0 ? resolve(code) : reject(code))
   })
 }
